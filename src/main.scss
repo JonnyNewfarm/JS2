@@ -1,4 +1,8 @@
-$primary: rgb(55, 81, 49);
+$primary: rgb(91, 121, 84);
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+
+body {
+    overflow-x: hidden;
+}
