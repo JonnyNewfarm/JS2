@@ -64,12 +64,31 @@ const id = params.get("id");
 
 const row = document.getElementById('product-details-row')
 const url = `https://api.noroff.dev/api/v1/social/posts/${id}`
+const deleteBtn = document.getElementById("delete-btn")
+const fetchToken = localStorage.getItem('accessToken');
+
+function onClick() {
+  fetch(`https://api.noroff.dev/api/v1/social/posts/${id}`,{
+            method:'DELETE',
+            headers: {
+                'content-Type' : 'application/json',
+                authorization: `bearer ${fetchToken}`,
+
+            },
+            });
+
+
+}
+    
+  
+
+
 
         
 async function fetchPost() {
 
 try {
-    const fetchToken = localStorage.getItem('accessToken');
+    
     const getData = {
       method: 'GET',
       headers: {
@@ -95,6 +114,8 @@ catch (error) {
 
 fetchPost();
 
+
+
 function createHtml(details) {
 row.innerHTML = `<div class="card mb-3" style="max-width: 900px;">
 <div class="row g-0">
@@ -114,9 +135,9 @@ row.innerHTML = `<div class="card mb-3" style="max-width: 900px;">
      
       <div class="input-group mb-3">
       
-<input type="text" class="form-control" placeholder="Coins" aria-label="Recipient's username">
-<a href="#" class="btn btn-primary" type="button">Bid</a>
-</div>
+
+<a href="#" class="btn btn-danger" onClick="onClick()" id="delete-btn" type="button">Delete</a>
+
 
     </div>
   </div>
