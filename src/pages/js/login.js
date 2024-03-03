@@ -18,6 +18,7 @@ async function loginUser(url, data){
     console.log(json);
     const accessToken = json.accessToken;
     const name = json.name;
+    const avatar = json.avatar;
     
     
     
@@ -31,6 +32,7 @@ loginError.style.display = "block";
         localStorage.setItem('name', name);
         
         localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem( 'avatar', avatar)
         
         location.href = "loggedInHomepage.html";
     }
