@@ -47,11 +47,16 @@
         
         <input type="email" placeholder="Email" name="email" style="margin-bottom:10px">
         <input type="password" placeholder="Password" name="password" style="margin-bottom:10px">
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn" style="background: #2c2052; color: white;">Login</button>
       </div>
       </form>
 
-      <p class="loginError" id="login-error" style="display: none;">Ups! Something went wrong, please try again.</p>
+      <div class="loginError" id="login-error" style="display: none; text-align: center;">
+        <p>Ups! Something went wrong, please try again.</p>
+        <p>Must be a valid Noroff email</p>
+        <p>Password must be at least 8 characters</p>
+      
+      </div>
   </div>
 </div>
 

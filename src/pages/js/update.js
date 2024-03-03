@@ -50,7 +50,7 @@ const htmlString = posts.map(
 <h5 class="card-title">${post.title}</h5>
 <p class="card-text">${post.body}</p>
 <p class="card-text">${post._tag}</p>
-<a href="/src/pages/updateDetails.html?id=${post.id}" class="btn btn-primary">Go somewhere</a>
+<a href="/src/pages/updateDetails.html?id=${post.id}" class="btn btn-primary" style="background: #2c2052; color: white;">Update</a>
 </div>
 </div>
     

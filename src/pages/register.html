@@ -48,9 +48,16 @@
         <input type="text" placeholder="Name" name="name" style="margin-bottom:10px">
         <input type="email" name="email" placeholder="Email" style="margin-bottom:10px">
         <input type="password" name="password" placeholder="Password" style="margin-bottom:10px">
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn" style="background: #2c2052; color: white;">Register</button>
       </div>
       </form>
+      <div id="register-error" style="display: none; text-align: center;">
+        <p>Ups! something went wrong, please try again</p>
+        <p>The name must not contain punctuation symbols</p>
+        <p>must be a valid noroff email</p>
+        <p>Password must be at least 8 characters</p>
+      
+      </div>
   </div>
 </div>
 

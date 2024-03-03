@@ -45,20 +45,22 @@ row.innerHTML = `<div class="card mb-3" style="max-width: 900px;">
   </div>
   <div class="col-md-6">
     <div class="card-body">
-      <h5 class="card-title">${details.title}</h5>
-      <p class="card-text">${details.description}</p>
-      <p class="card-text"><small class="text-muted">Offer ends:</small></p>
-      <p class="card-text">${details.endsAt}</p>
-      <p class="card-text"><small class="text-muted">Amount of bids</small></p>
-      <div>${details._count.bids}</div>
-      <br>
-      <p class="card-text"><small class="text-muted">place your bid</small></p>
-     
-      <div class="input-group mb-3">
+      <h1 class="card-title">${details.title}</h1>
+      <h5 class="card-text">Body:</h5>
+      <p class="card-text">${details.body}</p>
       
-<input type="text" class="form-control" placeholder="Coins" aria-label="Recipient's username">
-<a href="#" class="btn btn-primary" type="button">Bid</a>
-</div>
+      <h5 class="card-text">Tags:</h5>
+      <p class="card-text">${details.tags}</p>
+      <h5 class="card-text">Created:</h5>
+      <p class="card-text">${details.created}</p>
+      <h5 class="card-text">Updated:</h5>
+      <p class="card-text">${details.updated}</p>
+      
+      
+      
+     
+     
+  
 
     </div>
   </div>

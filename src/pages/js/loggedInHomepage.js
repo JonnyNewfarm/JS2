@@ -44,13 +44,13 @@ const displayPosts = (posts) => {
 const htmlString = posts.map(
   post => {
     return `
-    <div class="card" style="width: 18rem; margin-left: 15px; margin-right: 15px; margin-top: 15px; margin-bottom: 15px;">
+    <div class="card" style="width: 18rem; margin-left: 15px; margin-right: 15px; margin-top: 40px; margin-bottom: 15px;">
     <img src="${post.media}" class="card-img-top" style="object-fit: cover; max-height: 200px;" alt="...">
 <div class="card-body">
 <h5 class="card-title">${post.title}</h5>
 <p class="card-text">${post.body}</p>
 <p class="card-text">${post._tag}</p>
-<a href="/src/pages/productDetails.html?id=${post.id}" class="btn btn-primary">Go somewhere</a>
+<a href="/src/pages/productDetails.html?id=${post.id}" class="btn" style="background: #2c2052; color: white;">View more</a>
 </div>
 </div>
     
