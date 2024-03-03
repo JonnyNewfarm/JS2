@@ -21,17 +21,7 @@
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="/index.html">Home</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Managing
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="/src/pages/post.html">Create</a></li>
-                  <li><a class="dropdown-item" href="/src/pages/update.html">Update</a></li>
-                  <li><a class="dropdown-item" href="/src/pages/delete.html">Delete</a></li>
-                  
-                </ul>
-              </li>
+             
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Register
@@ -50,97 +40,13 @@
       </nav>
 
       
-        <input type="search" id="search" data-search>
-      
-
-      <div class="row" style="justify-content: center; " id="row">
-        <div class="col">
-      <div class="card" style="width: 18rem; margin-left: 15px; margin-right: 15px; margin-top: 15px; margin-bottom: 15px;"></div>
-    </div>
-      </div>
+        <div class="row">
+          <h1 style="text-align: center;">log in to view posts</h1>
+        </div>
 
 
 
-      <script>
-
-        const row = document.getElementById('row');
-        const search = document.getElementById('search');
-        let allPosts = []
-
-        const token = localStorage.getItem("accessToken");
-
-
-        search,addEventListener('keyup', (event) =>{
-const searchString = event.target.value.toLowerCase()
-         const filteredPosts = allPosts.filter( (post) =>{
-return post.title.toLowerCase().includes(searchString) 
-
-
-          });
-
-          displayPosts(filteredPosts)
-
-        });
-
-
-        const loadPosts = async () => {
-          try {
-            const res = await 
-        fetch('https://api.noroff.dev/api/v1/social/posts',{
-            method:'GET',
-            headers: {
-                'content-Type' : 'application/json',
-                authorization: `bearer ${token}`,
-
-            },
-            });
-             allPosts = await res.json();
-            displayPosts(allPosts);
-          
-        } catch (err) {
-          console.log(err);
-
-        }
-      
-      }
-       
-      const displayPosts = (posts) => {
-        const htmlString = posts.map(
-          post => {
-            return `
-            <div class="card" style="width: 18rem; margin-left: 15px; margin-right: 15px; margin-top: 15px; margin-bottom: 15px;">
-            <img src="${post.media}" class="card-img-top" style="object-fit: cover; max-height: 200px;" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">${post.title}</h5>
-    <p class="card-text">${post.body}</p>
-    <p class="card-text">${post._tag}</p>
-    <a href="/src/pages/productDetails.html?id=${post.id}" class="btn btn-primary">Go somewhere</a>
-  </div>
-  </div>
-            
-            
-            
-            `;
-          }
-        ).join('');
-        row.innerHTML = htmlString;
-      }
-
-      loadPosts();
-
-      
-
-       
-
-
-            
-          
-
-
-
-
-
-      </script>
+     
 
 
     

@@ -6,20 +6,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/main.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script defer src="./js/logout.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/index.html">Navbar</a>
+          <a class="navbar-brand" href="#">Navbar</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/index.html">Home</a>
+                <a class="nav-link" aria-current="page" href="/src/pages/loggedInHomepage.html">Home</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,15 +33,8 @@
                   
                 </ul>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Register
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="/src/pages/register.html">Register</a></li>
-                  <li><a class="dropdown-item" href="/src/pages/login.html">Login</a></li>
-                  
-                </ul>
+              <li>
+                <button class="btn btn-danger" id="logout-btn">logout</button>
               </li>
              
             </ul>
@@ -61,76 +55,9 @@
 
 
 
-      <script>
+      <script src="./js/update.js">
 
-        const row = document.getElementById('row');
-        const search = document.getElementById('search');
-        let allPosts = []
-
-        const token = localStorage.getItem("accessToken");
-        const name = localStorage.getItem('name')
-
-
-        search,addEventListener('keyup', (event) =>{
-const searchString = event.target.value.toLowerCase()
-         const filteredPosts = allPosts.filter( (post) =>{
-return post.title.toLowerCase().includes(searchString) 
-
-
-          });
-
-          displayPosts(filteredPosts)
-
-        });
-
-
-        const loadPosts = async () => {
-          try {
-            const res = await 
-        fetch(`https://api.noroff.dev/api/v1/social/profiles/${name}/posts`,{
-            method:'GET',
-            headers: {
-                'content-Type' : 'application/json',
-                authorization: `bearer ${token}`,
-
-            },
-            });
-             allPosts = await res.json();
-            displayPosts(allPosts);
-          
-        } catch (err) {
-          console.log(err);
-
-        }
-      
-      }
-       
-      const displayPosts = (posts) => {
-        const htmlString = posts.map(
-          post => {
-            return `
-            <div class="card" style="width: 18rem; margin-left: 15px; margin-right: 15px; margin-top: 15px; margin-bottom: 15px;">
-            <img src="${post.media}" class="card-img-top" style="object-fit: cover; max-height: 200px;" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">${post.title}</h5>
-    <p class="card-text">${post.body}</p>
-    <p class="card-text">${post._tag}</p>
-    <a href="/src/pages/updateDetails.html?id=${post.id}" class="btn btn-primary">Go somewhere</a>
-  </div>
-  </div>
-            
-            
-            
-            `;
-          }
-        ).join('');
-        row.innerHTML = htmlString;
-      }
-
-      loadPosts();
-
-      
-
+    
        
 
 

@@ -13,7 +13,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/index.html">Navbar</a>
+          <a class="navbar-brand" href="#">Navbar</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -69,33 +69,8 @@
 
 
 
-<script>
-    const formEl = document.querySelector(".form")
-    const token = localStorage.getItem("accessToken")
-
-    formEl.addEventListener('submit', event => {
-      
-        event.preventDefault()
-        
-
-        
-        
-        const formData = new FormData(formEl)
-        const data = Object.fromEntries(formData)
-      
-        
-       fetch('https://api.noroff.dev/api/v1/social/posts',{
-        method:'POST',
-        headers: {
-            'content-Type' : 'application/json',
-            authorization: `bearer ${token}`,
-        },
-        body: JSON.stringify(data)
-        })
-        .then(res => res.json() )
-        .then(json => console.log(json))
-        .catch(error => console.log(error))
-    });
+<script src="./js/managing.js">
+   
 
 
 
